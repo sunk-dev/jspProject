@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%
 	String pagefile=request.getParameter("page");
+
 	if (pagefile==null){pagefile="newitem";}
 %>
 <html>
@@ -20,6 +21,7 @@
 	<tr>
 		<td height="43" colspan=3 align=left>
 			<jsp:include page="top.jsp"/>
+			<!-- top.jsp추가  -->
 		</td>
 	</tr>
 	<tr>
