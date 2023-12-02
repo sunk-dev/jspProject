@@ -1,16 +1,15 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
     <%
 	String pagefile=request.getParameter("page");
+    System.out.print(pagefile);
 
 	if (pagefile==null){pagefile="newitem";}
 %>
-<!DOCTYPE html>
 <html>
 <head>
 <!-- 폰트 링크  -->
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
 <style type="text/css">
 body{
 background-image: url("./img/bg.jpg");
@@ -21,7 +20,7 @@ text-decoration: none;
 color: #000000;
 }
 .menu{
-justify-content: center;
+font-family: 'Noto Sans KR', sans-serif;
 }
 img{
 align-self: left;}
@@ -54,7 +53,7 @@ align-self: left;}
 
 <img alt="" src="./img/SIDE2.PNG">
 
-<jsp:include page='<%=pagefile+".jsp" %>'/>
+<jsp:include page='<%=pagefile+".jsp"%>'/>
 
 </div>
 <footer>

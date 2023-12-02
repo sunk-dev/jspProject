@@ -5,7 +5,7 @@
 <%@ page import="java.text.SimpleDateFormat"%>
 
 <%
-	ArrayList<Board> articleList=(ArrayList<Board>)request.getAttribute("articleList");
+	ArrayList<Board> articleList= (ArrayList<Board>)request.getAttribute("articleList");
     PageInfo pageInfo = (PageInfo)request.getAttribute("pageInfo");
 	int listCount=pageInfo.getListCount();
 	int nowPage=pageInfo.getPage();

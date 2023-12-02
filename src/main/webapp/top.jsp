@@ -44,7 +44,7 @@
 	String name = (String)session.getAttribute("name");
 	if(id == null){
 %>
-	<a href="./index.jsp?page=login">로그인</a> | 
+	<a href="./index.jsp?page=login">로그인</a> 
 	<a href="./index.jsp?page=join">회원가입</a>
 <%
 	}
