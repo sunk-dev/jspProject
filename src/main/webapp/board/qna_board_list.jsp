@@ -14,12 +14,20 @@
 	int endPage=pageInfo.getEndPage();
 %>
 
-<!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8" />
 <title>MVC 게시판</title>
 <style type="text/css">
+
+body{
+
+	background-image: url("././img/bg.jpg");
+	font-family: 'Noto Sans KR', sans-serif;
+	color: #685449;
+}
+
+
 #registForm {
 	width: 500px;
 	height: 600px;
@@ -51,6 +59,7 @@ table {
 	margin: auto;
 	width: 500px;
 	text-align: center;
+	height: 80%;
 }
 </style>
 </head>

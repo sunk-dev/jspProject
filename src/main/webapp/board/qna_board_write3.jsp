@@ -8,7 +8,7 @@
 
 body{
 
-	background-image: url("././img/bg.jpg");
+	background-image: url("./../img/bg.jpg");
 	font-family: 'Noto Sans KR', sans-serif;
 	color: #685449;
 
@@ -24,24 +24,49 @@ h2 {
 	text-align: center;
 }
 
+
 table {
 	margin: auto;
-	width: 450px;
+	width: 800px;
+	border: 2px solid;
+	border-radius: 30px;
+
 }
 
+td{
+
+	border-bottom: 2px solid;
+	
+	height: 50px;
+}
+td.lasttd{
+
+border-bottom: none;
+	
+}
 .td_left {
-	width: 150px;
-	background: orange;
+	width: 350px;
+	/* background: orange; */
+	text-align: center;
+	
 }
 
 .td_right {
-	width: 300px;
-	background: skyblue;
+	width: 450px;
+	/* background: skyblue; */
+	border-left: 2px solid;
 }
 
 #commandCell {
 	text-align: center;
 }
+.textnote{
+
+	height: 450px;
+	padding: 10px;
+
+}
+ .ck-editor__editable { height: 450px;  }
 </style>
 </head>
 <body>
@@ -69,21 +94,33 @@ table {
 				</tr>
 				<tr>
 					<td class="td_left"><label for="BOARD_CONTENT">내 용</label></td>
-					<td><textarea id="BOARD_CONTENT" name="BOARD_CONTENT"
-							cols="40" rows="15" required="required"></textarea></td>
+					<td class="textnote td_right"><textarea  name="text" id="editor"></textarea></td>
 				</tr>
 				<tr>
 					<td class="td_left"><label for="BOARD_FILE"> 파일 첨부 </label></td>
 					<td class="td_right"><input name="BOARD_FILE" type="file"
 						id="BOARD_FILE" required="required" /></td>
 				</tr>
+				
+				<tr>
+					<td class="td_left lasttd"><input type="submit" value="등록"></td>
+					<td class="td_right lasttd"><input type="reset" value="다시쓰기" /></td>
+				</tr>
 			</table>
-			<section id="commandCell">
-				<input type="submit" value="등록">&nbsp;&nbsp; <input
-					type="reset" value="다시쓰기" />
-			</section>
+			
 		</form>
 	</section>
 	<!-- 게시판 등록 -->
+
+
+	<script
+		src="https://cdn.ckeditor.com/ckeditor5/34.0.0/classic/ckeditor.js"></script>
+		<script src="https://cdn.ckeditor.com/ckeditor5/34.0.0/classic/translations/ko.js"></script>
+		
+	<script>
+	 ClassicEditor.create( document.querySelector( '#editor' ), {
+		    language: "ko"
+		  } );
+	</script>
 </body>
 </html>
