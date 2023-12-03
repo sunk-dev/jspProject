@@ -51,10 +51,13 @@ public class BoardFrontController extends HttpServlet {
 		String command = requestURI.substring(i);		
 		
 		if(command.equals("/boardWriteForm.bo")) {
-			path ="/board/qna_board_write.jsp";			
+			path ="/board/qna_board_write3.jsp";	
+			System.out.println(command);
 		}
+		
 		else if(command.equals("/boardWritePro.bo")) { //boardWritePro.bo
 			action = new BoardWriteProAction();
+			System.out.println(command);
 			try {
 				redirect = action.execute(request, response);
 				path = "boardList.bo";				

@@ -20,6 +20,20 @@ body{
 	margin: auto;
 }
 
+input.infoinput{
+
+	outline: none;
+	border-width: 0;
+	background-color:#dcd7d3;
+	font-family: 'Noto Sans KR', sans-serif;
+	color: #685449;
+	height: 90%;
+	width: 90%;
+	border-radius: 10px;
+	margin-left: 30px;
+
+}
+
 h2 {
 	text-align: center;
 }
@@ -36,6 +50,7 @@ table {
 td{
 
 	border-bottom: 2px solid;
+	justify-content:center;
 	
 	height: 50px;
 }
@@ -65,6 +80,7 @@ border-bottom: none;
 	height: 450px;
 	padding: 10px;
 
+
 }
  .ck-editor__editable { height: 450px;  }
 </style>
@@ -79,32 +95,32 @@ border-bottom: none;
 			<table>
 				<tr>
 					<td class="td_left"><label for="BOARD_NAME">글쓴이</label></td>
-					<td class="td_right"><input type="text" name="BOARD_NAME"
+					<td class="td_right"><input class="infoinput" type="text" name="BOARD_NAME"
 						id="BOARD_NAME" required="required" /></td>
 				</tr>
 				<tr>
 					<td class="td_left"><label for="BOARD_PASS">비밀번호</label></td>
-					<td class="td_right"><input name="BOARD_PASS" type="password"
+					<td class="td_right"><input class="infoinput" name="BOARD_PASS" type="password"
 						id="BOARD_PASS" required="required" /></td>
 				</tr>
 				<tr>
 					<td class="td_left"><label for="BOARD_SUBJECT">제 목</label></td>
-					<td class="td_right"><input name="BOARD_SUBJECT" type="text"
+					<td class="td_right"><input class="infoinput" name="BOARD_SUBJECT" type="text"
 						id="BOARD_SUBJECT" required="required" /></td>
 				</tr>
 				<tr>
 					<td class="td_left"><label for="BOARD_CONTENT">내 용</label></td>
-					<td class="textnote td_right"><textarea  name="text" id="editor"></textarea></td>
+					<td class="textnote td_right"><textarea name="BOARD_CONTENT"  name="text" id="editor"></textarea></td>
 				</tr>
 				<tr>
 					<td class="td_left"><label for="BOARD_FILE"> 파일 첨부 </label></td>
-					<td class="td_right"><input name="BOARD_FILE" type="file"
-						id="BOARD_FILE" required="required" /></td>
+					<td class="td_right"><input class="infoinput" name="BOARD_FILE" type="file"
+						id="BOARD_FILE" /></td>
 				</tr>
 				
 				<tr>
-					<td class="td_left lasttd"><input type="submit" value="등록"></td>
-					<td class="td_right lasttd"><input type="reset" value="다시쓰기" /></td>
+					<td  colspan="2" class="td_left lasttd"><input type="submit" value="등록">
+					<input type="reset" value="다시쓰기" /></td>
 				</tr>
 			</table>
 			

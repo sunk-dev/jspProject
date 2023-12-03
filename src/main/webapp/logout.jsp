@@ -10,9 +10,8 @@
 	<% session.invalidate(); %>
 	<script> 
 		alert("로그아웃되었습니다.")
-		location.href="index.jsp"
+		location.href="indexT.jsp"
 	</script>
-	
-	%>
+
 </body>
 </html>

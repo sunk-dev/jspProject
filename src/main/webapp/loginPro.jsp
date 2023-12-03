@@ -14,7 +14,7 @@
 	String pass = request.getParameter("password");
 	
 	Connection con = null;
-	String url = "jdbc:mysql://localhost:3306/myWeb";
+	String url = "jdbc:mysql://localhost:3306/myweb";
 	String driver = "com.mysql.jdbc.Driver";
 	String sql=null;
 	PreparedStatement ps =  null;
@@ -22,7 +22,7 @@
 	
 	try{
 		Class.forName(driver);
-		con = DriverManager.getConnection(url, "root", "1111");
+		con = DriverManager.getConnection(url, "root", "1234");
 		sql = "select * from member where id = ? && password = ?";		
 		ps = con.prepareStatement(sql);		
 		ps.setString(1, id);
@@ -32,7 +32,7 @@
 			session.setAttribute("id", id);
 			session.setAttribute("name", rs.getString("name"));
 			out.println("<script>");
-			out.println("location.href = 'index.jsp'");
+			out.println("location.href = 'indexT.jsp'");
 			out.println("</script>");			
 		}		
 		out.println("<script>");

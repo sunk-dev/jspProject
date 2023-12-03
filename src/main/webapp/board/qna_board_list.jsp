@@ -5,6 +5,7 @@
 <%@ page import="java.text.SimpleDateFormat"%>
 
 <%
+	request.setCharacterEncoding("UTF-8");
 	ArrayList<Board> articleList= (ArrayList<Board>)request.getAttribute("articleList");
     PageInfo pageInfo = (PageInfo)request.getAttribute("pageInfo");
 	int listCount=pageInfo.getListCount();
@@ -40,13 +41,25 @@ h2 {
 }
 
 table {
+	border: 3px solid;
+	border-color:#685449;
 	margin: auto;
 	width: 450px;
 }
 
-#tr_top {
-	background: orange;
+td{
+
+	border: 1px dashed ;
+	
+	border-color:#685449;
 	text-align: center;
+}
+
+
+#tr_top {
+
+	text-align: center;
+	
 }
 
 #pageList {

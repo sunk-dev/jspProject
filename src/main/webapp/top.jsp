@@ -51,7 +51,7 @@
 	else{
 %>	
 	<%= name %>님
-	<a href="./index.jsp?page=infoView">MyPage</a> 
+	<a href="./indexT.jsp?page=infoView">MyPage</a> 
 	<a href="./logout.jsp">Logout</a> 
 <%		
 	}	
