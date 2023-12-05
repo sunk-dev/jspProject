@@ -26,12 +26,14 @@ public class BoardModifyAction implements Action {
 		request.setCharacterEncoding("UTF-8");
 		
 		int board_num=Integer.parseInt(request.getParameter("board_num"));
+		System.out.println("boarnum"+board_num);
 		String pass=request.getParameter("BOARD_PASS");
 		Board article= new Board();
 		Connection con =  getConnection();
 		BoardDAO dao =  BoardDAO.getInstance();
 		dao.setCon(con);
 		boolean isWrite=dao.isArticleBoardWriter(board_num, pass);
+		System.out.println(isWrite);
 		if(isWrite) {
 			
 			article.setBOARD_NUM(board_num);
