@@ -8,7 +8,7 @@
 
 body{
 
-	background-image: url("./../img/bg.jpg");
+	background-image: url("./img/bg.jpg");
 	font-family: 'Noto Sans KR', sans-serif;
 	color: #685449;
 

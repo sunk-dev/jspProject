@@ -68,8 +68,37 @@ public class BoardFrontController extends HttpServlet {
 		else if(command.equals("/boardList.bo")){
 			action = new BoardListAction();
 			try {
-				action.execute(request, response);
+				redirect =action.execute(request, response);
 				path = "/board/qna_board_list.jsp";
+			}catch(Exception e) {
+				e.printStackTrace();
+			}	   		
+		}
+		else if(command.equals("/boardDetail.bo")){
+			action = new BoardDetailAction();
+			try {
+				redirect=action.execute(request, response);
+				path = "/board/qna_board_view.jsp";
+			}catch(Exception e) {
+				e.printStackTrace();
+			}	   		
+		}
+		
+		else if(command.equals("/boardModifyForm.bo")){
+			action = new BoardModifyFormAction();
+			try {
+				redirect=action.execute(request, response);
+				path = "/board/qna_board_modify.jsp";
+			}catch(Exception e) {
+				e.printStackTrace();
+			}	   		
+		}
+		
+		else if(command.equals("/boardModifyPro.bo")){
+			action = new BoardModifyAction();
+			try {
+				redirect=action.execute(request, response);
+				path = "boardList.bo";
 			}catch(Exception e) {
 				e.printStackTrace();
 			}	   		

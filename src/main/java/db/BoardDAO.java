@@ -21,6 +21,37 @@ public class BoardDAO {
 	public void setCon(Connection con) {
 		this.con = con;
 	}
+	
+	
+	//게시글 수정
+	public int updateArcitle(Board board) {
+		
+		PreparedStatement ps = null;
+		int upcount=0;
+		String sql = "update board set BOARD_SUBJECT=?,BOARD_CONTENT=? where BOARD_NUM=? ";
+		try {
+			
+			ps = con.prepareStatement(sql);
+			ps.setString(1, board.getBOARD_SUBJECT());
+			ps.setString(2, board.getBOARD_CONTENT());
+			ps.setInt(3, board.getBOARD_NUM());
+			upcount=ps.executeUpdate();
+			
+		}catch(Exception e){
+			System.out.println("글 수정중 오류");
+			e.printStackTrace();
+			
+		}finally {
+			close(ps);
+			
+		}
+		
+		
+		return upcount;
+		
+		
+	}
+	
 //전체 게시글 수 기져오기
 //글의 개수 구하기.
 	public int selectListCount() {
@@ -82,6 +113,87 @@ public class BoardDAO {
 	}
 
 	
+	//상세게시글 한개 조회
+	
+	
+	public Board selectArticle(int board_num) {
+		
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		String sql = "select * from  board where BOARD_NUM=? ";
+		Board boardBean = null; 
+		try
+		{	ps = con.prepareStatement(sql);
+			ps.setInt(1, board_num);
+			rs = ps.executeQuery();
+			if(rs.next()) {
+				boardBean=new Board();
+				boardBean.setBOARD_NUM(rs.getInt("BOARD_NUM"));
+				boardBean.setBOARD_NAME(rs.getString("BOARD_NAME"));	
+				boardBean.setBOARD_SUBJECT(rs.getString("BOARD_SUBJECT"));	
+				boardBean.setBOARD_CONTENT(rs.getString("BOARD_CONTENT"));	
+				boardBean.setBOARD_FILE(rs.getString("BOARD_FILE"));	
+				boardBean.setBOARD_RE_REF(rs.getInt("BOARD_RE_REF"));
+				boardBean.setBOARD_RE_LEV(rs.getInt("BOARD_RE_LEV"));
+				boardBean.setBOARD_RE_SEQ(rs.getInt("BOARD_RE_SEQ"));
+				boardBean.setBOARD_READCOUNT(rs.getInt("BOARD_READCOUNT"));
+				boardBean.setBOARD_DATE(rs.getDate("BOARD_DATE"));
+				
+				
+				
+			}
+		}catch(Exception e){
+			System.out.println("상세정보조회 오류");
+			e.printStackTrace();
+			
+		}finally {
+			try {
+				rs.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			try {
+				ps.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+		}
+		return boardBean;
+		
+		
+		
+		
+	}
+	
+	//조회수 업데이트
+	
+	public int updatReadCount(int board_num) {
+		
+
+		PreparedStatement ps = null;
+		int upcount=0;
+		String sql = "update board set BOARD_READCOUNT=BOARD_READCOUNT+1 where BOARD_NUM=? ";
+		try {
+			
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, board_num);
+			upcount=ps.executeUpdate();
+			
+		}catch(Exception e){
+			System.out.println("조회수 업데이트 오류");
+			e.printStackTrace();
+			
+		}finally {
+			
+		}
+		
+		
+		return upcount;
+		
+	}
 	
 	
 	
@@ -125,6 +237,54 @@ public class BoardDAO {
 		}
 		return re;			
 	}
+	
+	//
+	public Boolean isArticleBoardWriter(int board_num ,String password) {
+		
+		
+		Boolean isWriter=false;
+		
+		PreparedStatement ps = null;
+		String sql="";
+		ResultSet rs = null;
+		sql = "select BOARD_PASS from board where board_num=?";
+		try
+		{	ps = con.prepareStatement(sql);
+			ps.setInt(1, board_num);
+			rs = ps.executeQuery();
+			rs.next();
+			if(rs.getString(1).equals(password)) {
+				isWriter=true;
+			}
+		}catch(Exception e){
+			System.out.println("비밀번호 비교 오류");
+			e.printStackTrace();
+			
+		}finally {
+			try {
+				rs.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			try {
+				ps.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+		}
+		
+		
+		return isWriter;
+		
+		
+	}
+	
+	//게시글 수정
+	
+	
 	
 	
 }

@@ -27,6 +27,15 @@ body{
 	font-family: 'Noto Sans KR', sans-serif;
 	color: #685449;
 }
+a{
+	text-decoration: none;
+	color: inherit;
+	
+}
+a>div{
+	border:5px solid;
+	border-radius: 10PX;
+}
 
 
 #registForm {
@@ -81,9 +90,9 @@ td{
 	<!-- 게시판 리스트 -->
 
 	<section id="listForm">
-		<h2>
-			글 목록<a href="boardWriteForm.bo">게시판글쓰기</a>
-		</h2>
+		<h2>글 목록</h2>
+		<a href="boardWriteForm.bo">
+		<div>게시판글쓰기</div></a>
 		<table>
 			<%
 if(articleList != null && listCount > 0){
@@ -106,10 +115,10 @@ if(articleList != null && listCount > 0){
 
 				<td>
 					<%if(articleList.get(i).getBOARD_RE_LEV()!=0){ %> <%for(int a=0;a<=articleList.get(i).getBOARD_RE_LEV()*2;a++){ %>
-					&nbsp; <%} %> ▶ <%}else{ %> ▶ <%} %> <a
-					href="boardDetail.bo?board_num=<%=articleList.get(i).getBOARD_NUM()%>&page=<%=nowPage%>">
+					&nbsp; <%} %> ▶ <%}else{ %> ▶ <%} %> 
+					<a href="boardDetail.bo?board_num=<%=articleList.get(i).getBOARD_NUM()%>&page=<%=nowPage%>">
 						<%=articleList.get(i).getBOARD_SUBJECT()%>
-				</a>
+					</a>
 				</td>
 
 				<td><%=articleList.get(i).getBOARD_NAME() %></td>

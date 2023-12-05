@@ -47,8 +47,7 @@
 
 <section id = "writeForm">
 <h2>게시판글수정</h2>
-<form action="boardModifyPro.bo" method="post" name = "modifyform"
->
+<form action="boardModifyPro.bo" method="post" name = "modifyform">
 <input type = "hidden" name = "BOARD_NUM" value = "<%=article.getBOARD_NUM()%>"/>
 <table>
 	<tr>
@@ -85,6 +84,7 @@
 	</tr>
 </table>
 	<section id = "commandCell">
+	
 			<a href="javascript:modifyboard()">[수정]</a>&nbsp;&nbsp;
 			<a href="javascript:history.go(-1)">[뒤로]</a>
 	</section>

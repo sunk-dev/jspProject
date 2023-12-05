@@ -106,12 +106,10 @@ top:30%;
 		</div>
 
 		<img alt="" src="./img/SIDE2.PNG">
-
 		
+		<jsp:include page="bottom.jsp"/>
 
 	</div>
-	<%-- <footer>
-<jsp:include page="bottom.jsp"/>
-</footer> --%>
+
 </body>
 </html>
