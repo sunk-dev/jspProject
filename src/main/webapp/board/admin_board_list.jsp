@@ -1,5 +1,5 @@
+<%@page import="beans.AdminBoard"%>
 <%@page import="beans.PageInfo"%>  
-<%@page import="beans.Board"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <%@ page import="java.util.*"%>
 <%@ page import="java.text.SimpleDateFormat"%>
@@ -7,7 +7,7 @@
 
 <%
 	request.setCharacterEncoding("UTF-8");
-	ArrayList<Board> articleList= (ArrayList<Board>)request.getAttribute("articleList");
+	ArrayList<AdminBoard> articleList= (ArrayList<AdminBoard>)request.getAttribute("articleList");
     PageInfo pageInfo = (PageInfo)request.getAttribute("pageInfo");
 	int listCount=pageInfo.getListCount();
 	int nowPage=pageInfo.getPage();
@@ -102,8 +102,8 @@ td{
 	<jsp:include page="../top.jsp" />
 
 	<section id="listForm">
-		<h2>글 목록</h2>
-		<a href="boardWriteForm.bo">
+		<h2>공지 목록</h2>
+		<a href="AdminBoardWriteForm.bo">
 		<div>게시판글쓰기</div></a>
 		<table>
 			<%
@@ -126,9 +126,8 @@ if(articleList != null && listCount > 0){
 				<td><%=articleList.get(i).getBOARD_NUM()%></td>
 
 				<td>
-					<%if(articleList.get(i).getBOARD_RE_LEV()!=0){ %> <%for(int a=0;a<=articleList.get(i).getBOARD_RE_LEV()*2;a++){ %>
-					&nbsp; <%} %> ▶ <%}else{ %> ▶ <%} %> 
-					<a href="boardDetail.bo?board_num=<%=articleList.get(i).getBOARD_NUM()%>&page=<%=nowPage%>">
+					
+					<a href="AdminboardDetail.bo?board_num=<%=articleList.get(i).getBOARD_NUM()%>&page=<%=nowPage%>">
 						<%=articleList.get(i).getBOARD_SUBJECT()%>
 					</a>
 				</td>

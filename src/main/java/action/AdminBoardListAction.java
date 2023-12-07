@@ -6,6 +6,7 @@ import static db.JdbcUtil.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import beans.AdminBoard;
 import beans.Board;
 import beans.PageInfo;
 import db.AdminBoardDAO;
@@ -16,7 +17,7 @@ public class AdminBoardListAction implements Action {
 	@Override
 	public boolean execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		// TODO Auto-generated method stub
-		ArrayList<Board> articleList = new ArrayList<Board>();
+		ArrayList<AdminBoard> articleList = new ArrayList<AdminBoard>();
 		int page = 1;
 		int limit = 10;
 		

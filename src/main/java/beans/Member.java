@@ -7,6 +7,7 @@ public class Member {
 	private int age;
 	private String gender;
 	private String email;
+	private String admin;
 	
 	public String getId() {
 		return id;
@@ -43,6 +44,13 @@ public class Member {
 	}
 	public void setEmail(String email) {
 		this.email = email;
+	}
+	
+	public String getAdmin() {
+		return admin;
+	}
+	public void setAdmin(String admin) {
+		this.admin = admin;
 	}
 	
 	

@@ -1,5 +1,10 @@
 package controller;
+import static db.JdbcUtil.close;
+import static db.JdbcUtil.getConnection;
+
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.sql.Connection;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -7,7 +12,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 import action.*;
+import db.MemberDAO;
 
 /**
  * Servlet implementation class BoardFrontController
@@ -109,6 +117,89 @@ public class BoardFrontController extends HttpServlet {
 			try {
 				redirect =action.execute(request, response);
 				path = "/board/admin_board_list.jsp";
+			}catch(Exception e) {
+				e.printStackTrace();
+			}	   		
+		}
+		
+		else if(command.equals("/AdminBoardWriteForm.bo")) {
+			//
+			//1.로그인 했는지 여부 
+			// yes -계정이 admin인지 확인 
+			//        yes - 수정 화면으로 넘어가기
+			//        no -관리자 계정이아니라 삭제 못함띄우기 공지사항으로 돌아가가기
+			//no - 로그인 하세요 출력하기 
+			//action = new AdminBoardWriteProAction();
+			
+			
+			HttpSession session= request.getSession();
+			String id= (String)session.getAttribute("id");
+			
+			if(id==null) {
+				System.out.println("로그인필요!");
+				response.setContentType("text/html;charset=UTF-8");
+				PrintWriter out = response.getWriter();
+				out.println("<script>");
+				out.println("alert('로그인 해주세요!')");
+				out.println("history.back();");
+				out.println("</script>");
+			}else {
+				
+				Connection con =  getConnection();
+				MemberDAO dao =  MemberDAO.getInstance();
+				dao.setCon(con);
+				
+				boolean isAdmin = dao.isAdminBoardWriter(id);
+				
+				if(!isAdmin) {
+					close(con);
+					response.setContentType("text/html;charset=UTF-8");
+					PrintWriter out = response.getWriter();
+					out.println("<script>");
+					out.println("alert('관리자 계정이 아닙니다!!')");
+					out.println("history.back();");
+					out.println("</script>");
+				}else {
+					path ="/board/admin_board_write.jsp";	
+					
+				}
+				
+				
+				
+				/*action = new AdminBoardWriteProAction();
+				try {
+					redirect=action.execute(request, response);
+					path = "boardList.bo";
+				}catch(Exception e) {
+					e.printStackTrace();
+				}	   	
+				System.out.println(action);*/
+				
+				//path ="/board/qna_board_write3.jsp";	
+				System.out.println(command);
+			}
+			
+		}
+		else if(command.equals("/AdminBoardWritePro.bo")) {
+			
+			action = new AdminBoardWriteProAction();
+			System.out.println(command);
+			try {
+				redirect = action.execute(request, response);
+				path = "adminBoardList.bo";				
+			}catch(Exception e) {
+				e.printStackTrace();
+			}	
+			
+			
+			
+		}
+		
+		else if(command.equals("/AdminboardDetail.bo")){
+			action = new AdminBoardDetailAction();
+			try {
+				redirect=action.execute(request, response);
+				path = "/board/admin_board_view.jsp";
 			}catch(Exception e) {
 				e.printStackTrace();
 			}	   		
