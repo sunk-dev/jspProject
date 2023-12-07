@@ -78,7 +78,7 @@ public class AdminBoardDAO {
 		
 		PreparedStatement ps = null;
 		ResultSet rs = null;
-		String sql = "select * from  adminboard order by BOARD_RE_REF desc, BOARD_RE_LEV asc, BOARD_RE_SEQ asc limit ?, ?";
+		String sql = "select * from  adminboard  limit ?, ?";
 		Board boardBean = null; 
 		int startRow = (page-1)*10;
 		try {
@@ -93,9 +93,6 @@ public class AdminBoardDAO {
 				boardBean.setBOARD_SUBJECT(rs.getString("BOARD_SUBJECT"));	
 				boardBean.setBOARD_CONTENT(rs.getString("BOARD_CONTENT"));	
 				boardBean.setBOARD_FILE(rs.getString("BOARD_FILE"));	
-				boardBean.setBOARD_RE_REF(rs.getInt("BOARD_RE_REF"));
-				boardBean.setBOARD_RE_LEV(rs.getInt("BOARD_RE_LEV"));
-				boardBean.setBOARD_RE_SEQ(rs.getInt("BOARD_RE_SEQ"));
 				boardBean.setBOARD_READCOUNT(rs.getInt("BOARD_READCOUNT"));
 				boardBean.setBOARD_DATE(rs.getDate("BOARD_DATE"));
 				aList.add(boardBean);

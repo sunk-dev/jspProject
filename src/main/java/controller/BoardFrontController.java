@@ -105,7 +105,7 @@ public class BoardFrontController extends HttpServlet {
 		}
 		
 		else if(command.equals("/adminBoardList.bo")){
-			action = new BoardListAction();
+			action = new AdminBoardListAction();
 			try {
 				redirect =action.execute(request, response);
 				path = "/board/admin_board_list.jsp";
