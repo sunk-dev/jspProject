@@ -10,36 +10,90 @@
 <meta charset="UTF-8"> 
 	<title>MVC 게시판</title>
 	<script type="text/javascript">
+	
 	function modifyboard(){
 		modifyform.submit();
 	}
 	</script>
 	<style type="text/css">
-   #registForm{
-      width: 500px;
-      height: 600px;
-      border : 1px solid red; 
-      margin:auto; 
-   }   
-   h2{
-      text-align: center;
-   }
-   table{
-      margin:auto;
-      width: 450px;
-      }
-   .td_left{
-      width: 150px;
-      background:orange;
-   }
-   .td_right{
-      width: 300px;
-      background:skyblue;
-   }
-   #commandCell{
-      text-align: center;
-      
-   }
+	
+	
+	body{
+
+		background-image: url("./img/bg.jpg");
+		font-family: 'Noto Sans KR', sans-serif;
+		color: #685449;
+
+	}
+	
+	
+ #registForm {
+	width: 500px;
+	height: 610px;
+	border: 1px solid red;
+	margin: auto;
+}
+input.infoinput{
+
+	outline: none;
+	border-width: 0;
+	background-color:#dcd7d3;
+	font-family: 'Noto Sans KR', sans-serif;
+	color: #685449;
+	height: 90%;
+	width: 90%;
+	border-radius: 10px;
+	margin-left: 30px;
+
+}
+
+h2 {
+	text-align: center;
+}
+
+
+table {
+	margin: auto;
+	width: 800px;
+	border: 2px solid;
+	border-radius: 30px;
+
+}
+
+td{
+
+	border-bottom: 2px solid;
+	justify-content:center;
+	
+	height: 50px;
+}
+td.lasttd{
+
+border-bottom: none;
+	
+}
+.td_left {
+	width: 350px;
+	/* background: orange; */
+	text-align: center;
+	
+}
+
+.td_right {
+	width: 450px;
+	/* background: skyblue; */
+	border-left: 2px solid;
+}
+
+#commandCell {
+	text-align: center;
+}
+.textnote{
+
+	height: 450px;
+	padding: 10px;
+
+
 </style>
 </head>
 <body>
@@ -79,8 +133,8 @@
 			<label for = "BOARD_CONTENT">내 용</label>
 		</td>
 		<td>
-			<textarea id = "BOARD_CONTENT" name="BOARD_CONTENT" cols="40" rows="15"><%=article.getBOARD_CONTENT()%></textarea>
-		</td>
+		<td class="textnote td_right"><textarea name="BOARD_CONTENT"  name="text" id="editor"><%=article.getBOARD_CONTENT()%></textarea></td>
+		
 	</tr>
 </table>
 	<section id = "commandCell">
@@ -90,5 +144,19 @@
 	</section>
 </form>
 </section>
+
+<!-- 게시판 등록 -->
+
+
+	<script
+		src="https://cdn.ckeditor.com/ckeditor5/34.0.0/classic/ckeditor.js"></script>
+		<script src="https://cdn.ckeditor.com/ckeditor5/34.0.0/classic/translations/ko.js"></script>
+		
+	<script>
+	 ClassicEditor.create( document.querySelector( '#editor' ), {
+		    language: "ko"
+		  } );
+	</script>
+
 </body>
 </html>

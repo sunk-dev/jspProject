@@ -88,17 +88,27 @@ public class BoardFrontController extends HttpServlet {
 			action = new BoardModifyFormAction();
 			try {
 				redirect=action.execute(request, response);
-				path = "/board/qna_board_modify.jsp";
+				path = "/board/qna_board_modify2.jsp";
 			}catch(Exception e) {
 				e.printStackTrace();
 			}	   		
 		}
 		
 		else if(command.equals("/boardModifyPro.bo")){
-			action = new BoardModifyAction();
+			action = new BoardModifyProAction();
 			try {
 				redirect=action.execute(request, response);
 				path = "boardList.bo";
+			}catch(Exception e) {
+				e.printStackTrace();
+			}	   		
+		}
+		
+		else if(command.equals("/adminBoardList.bo")){
+			action = new BoardListAction();
+			try {
+				redirect =action.execute(request, response);
+				path = "/board/admin_board_list.jsp";
 			}catch(Exception e) {
 				e.printStackTrace();
 			}	   		

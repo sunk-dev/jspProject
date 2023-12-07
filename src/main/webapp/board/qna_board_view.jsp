@@ -12,10 +12,21 @@
 <meta charset="UTF-8">
 <title>MVC 게시판</title>
 <style type="text/css">
+body{
+
+	background-image: url("././img/bg.jpg");
+	font-family: 'Noto Sans KR', sans-serif;
+	color: #685449;
+}
+
+a {
+	text-decoration: none;
+	color: #685449;
+	font-weight: 900;
+}
 #articleForm {
 	width: 500px;
-	height: 500px;
-	border: 1px solid red;
+	height: 800px;
 	margin: auto;
 }
 
@@ -29,9 +40,9 @@ h2 {
 }
 
 #articleContentArea {
-	background: orange;
+	background-image: url("././img/boardview.jpg");
 	margin-top: 20px;
-	height: 350px;
+	height: 650px;
 	text-align: center;
 	overflow: auto;
 }
@@ -51,6 +62,7 @@ h2 {
 		<section id="basicInfoArea">
 			제 목 :
 			<%=article.getBOARD_SUBJECT()%>
+			<br/>
 			첨부파일 :
 			<%if(!(article.getBOARD_FILE()==null)){ %>
 			<a href="file_down?downFile=<%=article.getBOARD_FILE()%>"> <%=article.getBOARD_FILE() %>

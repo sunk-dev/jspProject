@@ -72,7 +72,16 @@ top:30%;
 	background-color: yellow;
 
 }
-
+.logo{
+	display:inline-block;
+	width:100px;
+	height: 30px;
+}
+.logo>img{
+width:100px;
+	height: 30px;
+	object-fit: cover;
+}
 
 </style>
 <meta charset="UTF-8">
@@ -81,7 +90,11 @@ top:30%;
 <body>
 	<div>
 		<!-- 몸통 전체  -->
-
+		<!-- 로고 -->
+		<a>
+		<div class="logo"><img  src="./img/coffeelogo.png"></div>
+		
+		</a>
 		<!--  상단메뉴  -->
 		<div class="menu">
 
