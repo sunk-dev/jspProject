@@ -76,7 +76,7 @@ h2 {
 	</section>
 	<section id="commandList">
 		<a href="AdminboardReplyForm.bo?board_num=<%=article.getBOARD_NUM() %>&page=<%=nowPage%>">[답변] </a>
-		<a href="AdminboardModifyForm.bo?board_num=<%=article.getBOARD_NUM() %>">[수정] </a>
+		<a href="AdminBoardModifyForm.bo?board_num=<%=article.getBOARD_NUM() %>">[수정] </a>
 		<a href="AdminboardDeleteForm.bo?board_num=<%=article.getBOARD_NUM() %>&page=<%=nowPage%>">[삭제] </a>
 		<a href="adminBoardList.bo?page=<%=nowPage%>">[목록]</a>&nbsp;&nbsp;
 	</section>

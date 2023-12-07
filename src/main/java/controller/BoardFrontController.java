@@ -206,6 +206,30 @@ public class BoardFrontController extends HttpServlet {
 		}
 		
 		
+		else if(command.equals("/AdminBoardModifyForm.bo")){
+			action = new AdminBoardModifyFormAction();
+			try {
+				redirect=action.execute(request, response);
+				path = "/board/admin_board_modify.jsp";
+			}catch(Exception e) {
+				e.printStackTrace();
+			}	   		
+		}
+		
+		//AdminbBoardModifyPro.bo
+		
+		else if(command.equals("/AdminbBoardModifyPro.bo")){
+			action = new AdminBoardModifyProAction();
+			try {
+				redirect=action.execute(request, response);
+				path = "adminBoardList.bo";
+			}catch(Exception e) {
+				e.printStackTrace();
+			}	   		
+		}
+		
+		
+		
 		//////// 해당페이지 이동~~
 		if(redirect==true)
 			response.sendRedirect(path);
