@@ -5,7 +5,7 @@ String pagefile = request.getParameter("page");
 System.out.print(pagefile);
 
 if (pagefile == null) {
-	pagefile = "newitem";
+	pagefile = "introduce";
 }
 %>
 <html>
@@ -30,7 +30,7 @@ a {
 .menu {
 	position: absolute;
 	top: 5%;
-	left: 30%;
+	left: 35%;
 	font-family: 'Noto Sans KR', sans-serif;
 	font-size: 16pt;
 }
@@ -74,14 +74,13 @@ top:30%;
 }
 .logo{
 	display:inline-block;
-	width:100px;
-	height: 30px;
+	position:absolute;
+	top: 5%;
+	width:200px;
+	height:40px;
 }
-.logo>img{
-width:100px;
-	height: 30px;
-	object-fit: cover;
-}
+
+
 
 </style>
 <meta charset="UTF-8">
@@ -91,9 +90,9 @@ width:100px;
 	<div>
 		<!-- 몸통 전체  -->
 		<!-- 로고 -->
-		<a>
-		<div class="logo"><img  src="./img/coffeelogo.png"></div>
 		
+		<a href="indexT.jsp">
+		<div class="logo"><img  src="./img/coffeelogo.png"></div>
 		</a>
 		<!--  상단메뉴  -->
 		<div class="menu">
@@ -109,7 +108,7 @@ width:100px;
 		<div class="main">
 		
 		<div class="includepage">
-		<jsp:include page='<%=pagefile + ".jsp"%>' />
+		<jsp:include page='<%=pagefile+ ".jsp"%>' />
 		</div>
 
 			<!--  -->
@@ -119,8 +118,9 @@ width:100px;
 		</div>
 
 		<img alt="" src="./img/SIDE2.PNG">
-		
+		<div>
 		<jsp:include page="bottom.jsp"/>
+		</div>
 
 	</div>
 
