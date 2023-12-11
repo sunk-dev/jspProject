@@ -73,6 +73,29 @@ public class BoardDAO {
 		return listCount;
 	}
 	
+	//게시글 삭제
+		public int deleteArticle(int board_num,String board_pass) {
+			PreparedStatement ps = null;
+			ResultSet rs = null;
+			int deleteCount=0;
+			String sql = "delete  from  board where BOARD_NUM=? and BOARD_PASS=? ";
+			try {
+				ps = con.prepareStatement(sql);
+				ps.setInt(1, board_num);
+				ps.setString(2, board_pass);
+				deleteCount = ps.executeUpdate();
+				return deleteCount;
+			}catch (Exception e) {
+				e.printStackTrace();
+				// TODO: handle exception
+			}
+			return deleteCount;
+			
+		}
+	
+	
+	
+	
 	public ArrayList<Board> selectArticleList(int page, int limit){
 		ArrayList<Board> aList =  new ArrayList<Board>();
 		

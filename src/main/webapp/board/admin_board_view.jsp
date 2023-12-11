@@ -53,10 +53,19 @@ h2 {
 	width: 500px;
 	text-align: center;
 }
+.logo{
+	display:inline-block;
+	position:absolute;
+	top: 5%;
+	width:200px;
+	height:40px;
+}
+
 </style>
 </head>
 
 <body>
+
 	<!-- 게시판 수정 -->
 	<section id="articleForm">
 		<h2>글 내용 상세보기</h2>

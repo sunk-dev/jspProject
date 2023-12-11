@@ -20,6 +20,7 @@ public class AdminBoardListAction implements Action {
 		ArrayList<AdminBoard> articleList = new ArrayList<AdminBoard>();
 		int page = 1;
 		int limit = 10;
+		System.out.println("들어오나요?");
 		
 		if(request.getParameter("page")!=null) {
 			page = Integer.parseInt(request.getParameter("page"));

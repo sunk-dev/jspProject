@@ -56,7 +56,8 @@ public class BoardFrontController extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		String requestURI = request.getRequestURI();						
 		int i = requestURI.lastIndexOf('/');	
-		String command = requestURI.substring(i);		
+		String command = requestURI.substring(i);
+		System.out.println("command"+command);
 		
 		if(command.equals("/boardWriteForm.bo")) {
 			path ="/board/qna_board_write3.jsp";	
@@ -112,7 +113,34 @@ public class BoardFrontController extends HttpServlet {
 			}	   		
 		}
 		
-		else if(command.equals("/adminBoardList.bo")){
+		
+		else if(command.equals("/boardDeleteForm.bo")){
+			action=new BoardDeleteForm();
+			try {
+				redirect=action.execute(request, response);
+				path="board/qna_board_delete.jsp";
+				//path = "adminBoardList.bo";
+			}catch(Exception e) {
+				e.printStackTrace();
+			}	   		
+		}
+		//AdminBoardDeletePro.bo
+		else if(command.equals("/boardDeletePro.bo")) {
+			action=new BoardDeleteAction();
+			try {
+				redirect=action.execute(request, response);
+				path="boardList.bo";
+				//path = "adminBoardList.bo";
+			}catch(Exception e) {
+				e.printStackTrace();
+			}	   		
+			
+		}
+		
+		
+		
+		
+		else if(command.equals("/AdminBoardList.bo")){
 			action = new AdminBoardListAction();
 			try {
 				redirect =action.execute(request, response);
@@ -186,7 +214,7 @@ public class BoardFrontController extends HttpServlet {
 			System.out.println(command);
 			try {
 				redirect = action.execute(request, response);
-				path = "adminBoardList.bo";				
+				path = "AdminBoardList.bo";				
 			}catch(Exception e) {
 				e.printStackTrace();
 			}	
@@ -222,10 +250,68 @@ public class BoardFrontController extends HttpServlet {
 			action = new AdminBoardModifyProAction();
 			try {
 				redirect=action.execute(request, response);
-				path = "adminBoardList.bo";
+				path = "AdminBoardList.bo";
 			}catch(Exception e) {
 				e.printStackTrace();
 			}	   		
+		}
+		//AdminboardDeleteForm.bo
+		
+		else if(command.equals("/AdminboardDeleteForm.bo")){
+			action=new AdminBoardDeleteForm();
+			HttpSession session= request.getSession();
+			String id= (String)session.getAttribute("id");
+			
+			if(id==null) {
+				System.out.println("로그인필요!");
+				response.setContentType("text/html;charset=UTF-8");
+				PrintWriter out = response.getWriter();
+				out.println("<script>");
+				out.println("alert('로그인 해주세요!')");
+				out.println("history.back();");
+				out.println("</script>");
+			}else {
+				
+				Connection con =  getConnection();
+				MemberDAO dao =  MemberDAO.getInstance();
+				dao.setCon(con);
+				
+				boolean isAdmin = dao.isAdminBoardWriter(id);
+				
+				if(!isAdmin) {
+					close(con);
+					response.setContentType("text/html;charset=UTF-8");
+					PrintWriter out = response.getWriter();
+					out.println("<script>");
+					out.println("alert('관리자 계정이 아닙니다!! 삭제진행이 불가합니다')");
+					out.println("history.back();");
+					out.println("</script>");
+				}else {
+					try {
+						redirect=action.execute(request, response);
+						path="board/admin_board_delete.jsp";
+						//path = "adminBoardList.bo";
+					}catch(Exception e) {
+						e.printStackTrace();
+					}	   		
+					
+				}
+			
+			
+			
+			
+		}}
+		//AdminBoardDeletePro.bo
+		else if(command.equals("/AdminBoardDeletePro.bo")) {
+			action=new AdminBoardDeleteAction();
+			try {
+				redirect=action.execute(request, response);
+				path="AdminBoardList.bo";
+				//path = "adminBoardList.bo";
+			}catch(Exception e) {
+				e.printStackTrace();
+			}	   		
+			
 		}
 		
 		

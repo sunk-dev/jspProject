@@ -9,32 +9,32 @@
 //아이템 배열
 const items = [
   {
-    img: "./img/coffeefair.jpg",
+    img: "./img/fair.png",
     category: "Coffee beans",
     title: "Fair Trade",
-    price: "£100",
-    bgColor: "#ffe474",
+    price: "",
+    bgColor: "#dcd7d3",
   },
   {
-    img: "https://wise-step.surge.sh/assets/media/imgs/2.png",
+    img:  "./img/do.png",
     category: "Roasting",
     title: "specialist",
-    price: "£300",
-    bgColor: "#d2e2d7",
+    price: "",
+  	bgColor: "#dcd7d3",
   },
   {
-    img: "https://wise-step.surge.sh/assets/media/imgs/3.png",
-    category: "Social",
-    title: "bison welder",
-    price: "£420",
-    bgColor: "#f3c3be",
+    img: "./img/dododo.png",
+    category: "coffee",
+    title: "various acids",
+    price: "",
+    bgColor: "#dcd7d3",
   },
   {
-    img: "https://wise-step.surge.sh/assets/media/imgs/4.png",
-    category: "watch",
-    title: "schemiet watch",
-    price: "£267",
-    bgColor: "#dedede",
+    img:"./img/cake.png",
+    category: "Desert",
+    title: "Premium Taste",
+    price: "",
+    bgColor: "#dcd7d3",
   },
 ];
 

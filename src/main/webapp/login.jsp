@@ -16,6 +16,17 @@
 	td{
 		text-align : center;
 	}
+	
+.btn{
+
+background-color:#dcd7d3;
+outline: none;
+	border-width: 0;
+	background-color:#dcd7d3;
+
+}
+	
+	
 </style>
 </head>
 <body>
@@ -31,8 +42,8 @@
 				<td><input type="password" name="password" id="pass"></td>
 			</tr>
 			<tr>
-				<td colspan="2"><input type="submit" value="로그인"> <input
-					type="reset" value="취소"></td>
+				<td colspan="2"><input class="btn" type="submit" value="로그인"> <input
+					class="btn" type="reset" value="취소"></td>
 			</tr>
 		</table>
 	</form>

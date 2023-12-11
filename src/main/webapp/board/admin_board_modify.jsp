@@ -101,6 +101,14 @@ border-bottom: none;
 
 
 }
+.logo{
+	display:inline-block;
+	position:absolute;
+	top: 5%;
+	width:200px;
+	height:40px;
+}
+
  .ck-editor__editable { height: 450px;  }
 </style>
 </head>

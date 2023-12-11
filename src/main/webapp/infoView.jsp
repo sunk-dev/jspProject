@@ -6,6 +6,31 @@
 <head>
 <meta charset="UTF-8">
 <title>회원정보관리 페이지</title>
+<style type="text/css">
+
+	#loginArea{
+		position:relative;
+		top:30%;
+		width : 400px;
+		margin : auto;
+		border : 1px solid black;
+	}
+	table {
+		margin : auto;
+	}
+	td{
+		text-align : center;
+	}
+		.btn{
+
+background-color:#dcd7d3;
+outline: none;
+	border-width: 0;
+	background-color:#dcd7d3;
+
+}
+
+</style>
 </head>
 <body>
 
@@ -31,7 +56,7 @@
 		e.printStackTrace();
 	}
 %>
-
+<section id="loginArea">
 	<form action="updatePro.jsp" method="post">
 		<table>
 			<tr>
@@ -65,11 +90,12 @@
 				<td><input type="email" name="email" value = <%=rs.getString("email") %>></td>
 			</tr>
 			<tr>
-				<td colspan="2"><input type="submit" value="회원정보 수정"> 
-								<input type="button" value="회원탈퇴" onClick="location.href='delete.jsp'"></td>
+				<td colspan="2"><input class="btn" type="submit" value="회원정보 수정"> 
+								<input class="btn" type="button" value="회원탈퇴" onClick="location.href='delete.jsp'"></td>
 			</tr>
 		</table>
 	</form>
+</section>
 
 
 </body>

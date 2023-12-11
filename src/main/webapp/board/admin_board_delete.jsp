@@ -16,21 +16,13 @@ body{
 	color: #685449;
 }
 
-table {
-		margin : auto;
-	}
-	td{
-	margin : auto;
-		text-align : center;
-	}
-
-
 	#passForm{
 		width:400px;
 		margin:auto;
 		border : 1px solid orange;
 	}
-			.btn{
+	
+		.btn{
 
 background-color:#dcd7d3;
 outline: none;
@@ -43,7 +35,7 @@ outline: none;
 </head>
 <body>
 <section id = "passForm">
-<form name="deleteForm" action="boardDeletePro.bo?board_num=<%=board_num %>" 
+<form name="deleteForm" action="AdminBoardDeletePro.bo?board_num=<%=board_num %>" 
 	method="post">
 <input type = "hidden" name = "page" value = "<%=nowPage %>"/>
 <table>
@@ -57,9 +49,9 @@ outline: none;
 </tr>
 <tr>
 	<td>
-		<input class="btn" type="submit" value = "삭제"/>
+		<input  class="btn" type="submit" value = "삭제"/>
 		&nbsp;&nbsp;
-		<input  class="btn" type = "button" value = "돌아가기" onClick ="javascript:history.go(-1)"/>
+		<input class="btn" type = "button" value = "돌아가기" onClick ="javascript:history.go(-1)"/>
 	</td>
 </tr>
 </table>

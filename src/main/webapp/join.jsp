@@ -3,7 +3,7 @@
 <head>
 <title>Session Login</title>
 <style>
-	#loginArea{
+		#loginArea{
 		position:relative;
 		top:30%;
 		width : 400px;
@@ -16,6 +16,14 @@
 	td{
 		text-align : center;
 	}
+	.btn{
+
+background-color:#dcd7d3;
+outline: none;
+	border-width: 0;
+	background-color:#dcd7d3;
+
+}
 </style>
 </head>
 <body>
@@ -48,7 +56,7 @@
 				<td><input type="email" name="email"></td>
 			</tr>
 			<tr>
-				<td colspan="2"><input type="submit" value="가입"> <input
+				<td colspan="2"><input class="btn" type="submit" value="가입"> <input class="btn"
 					type="reset" value="다시 작성"></td>
 			</tr>
 		</table>

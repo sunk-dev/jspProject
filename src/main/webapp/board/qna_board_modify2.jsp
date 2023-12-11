@@ -100,12 +100,20 @@ border-bottom: none;
 
 
 }
+.logo{
+	display:inline-block;
+	position:absolute;
+	top: 5%;
+	width:200px;
+	height:40px;
+}
+
  .ck-editor__editable { height: 450px;  }
 </style>
 </head>
 <body>
 	<!-- 게시판 등록 -->
-
+	
 	<section id="writeForm">
 		<h2>게시판글수정</h2>
 		<form action="boardModifyPro.bo" method="post" name = "modifyform">

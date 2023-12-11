@@ -7,7 +7,8 @@
 
 <%
 	request.setCharacterEncoding("UTF-8");
-	ArrayList<AdminBoard> articleList= (ArrayList<AdminBoard>)request.getAttribute("articleList");
+	ArrayList<AdminBoard> articleList= new ArrayList<AdminBoard>();
+	articleList=(ArrayList<AdminBoard>)request.getAttribute("articleList");
     PageInfo pageInfo = (PageInfo)request.getAttribute("pageInfo");
 	int listCount=pageInfo.getListCount();
 	int nowPage=pageInfo.getPage();
@@ -93,12 +94,20 @@ td{
 
 	margin-top: 30px;
 }
+.logo{
+	display:inline-block;
+	position:absolute;
+	top: 5%;
+	width:200px;
+	height:40px;
+}
 
 </style>
 </head>
 
 <body>
 	<!-- 게시판 리스트 -->
+	
 	<jsp:include page="../top.jsp" />
 
 	<section id="listForm">
@@ -144,14 +153,14 @@ if(articleList != null && listCount > 0){
 		<%if(nowPage<=1){ %>
 		[이전]&nbsp;
 		<%}else{ %>
-		<a href="boardList.bo?page=<%=nowPage-1 %>">[이전]</a>&nbsp;
+		<a href="AdminBoardList.bo?page=<%=nowPage-1 %>">[이전]</a>&nbsp;
 		<%} %>
 
 		<%for(int a=startPage;a<=endPage;a++){
 				if(a==nowPage){%>
 		[<%=a %>]
 		<%}else{ %>
-		<a href="boardList.bo?page=<%=a %>">[<%=a %>]
+		<a href="AdminBoardList.bo?page=<%=a %>">[<%=a %>]
 		</a>&nbsp;
 		<%} %>
 		<%} %>
@@ -159,7 +168,7 @@ if(articleList != null && listCount > 0){
 		<%if(nowPage>=maxPage){ %>
 		[다음]
 		<%}else{ %>
-		<a href="boardList.bo?page=<%=nowPage+1 %>">[다음]</a>
+		<a href="AdminBoardList.bo?page=<%=nowPage+1 %>">[다음]</a>
 		<%} %>
 	</section>
 	<%

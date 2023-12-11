@@ -93,12 +93,22 @@ td{
 
 	margin-top: 30px;
 }
+.logo{
+	display:inline-block;
+	position:absolute;
+	top: 5%;
+	left:10%
+	width:200px;
+	height:40px;
+}
+
 
 </style>
 </head>
 
 <body>
 	<!-- 게시판 리스트 -->
+	
 	<jsp:include page="../top.jsp" />
 
 	<section id="listForm">

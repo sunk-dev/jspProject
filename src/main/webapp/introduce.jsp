@@ -48,6 +48,7 @@ button {
 .slider__img {
   width: 20rem;
   align-self: center;
+  margin-left:1.5rem;
   margin-bottom: 1.7rem;
 }
 .slider__context {
@@ -160,6 +161,7 @@ button {
 @media (min-width: 490px) {
   .slider__img {
     width: 29rem;
+     margin-left:1.5rem;
     margin-bottom: -1rem;
   }
   .slider__context {
@@ -180,6 +182,7 @@ button {
 @media (min-width: 830px) {
   .slider__img {
     width: 37rem;
+     margin-left:1.5rem;
     margin-bottom: -11.5rem;
   }
   .slider__context {
@@ -204,7 +207,7 @@ button {
           <div class="flex-column slider__content"></div>
           <div class="slider__footer">
             <div class="slider__btns justify-between">
-              <button class="slider__btn-buy">buy</button>
+              <button class="slider__btn-buy"></button>
               <div class="flex-center">
                 <button
                   data-type="prev"
