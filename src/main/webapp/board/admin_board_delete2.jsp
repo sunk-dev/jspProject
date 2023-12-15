@@ -47,7 +47,7 @@ outline: none;
 </head>
 <body>
 <section id = "passForm">
-<form name="deleteForm" action="boardDeletePro.bo?board_num=<%=board_num %>" 
+<form name="deleteForm" action="AdminBoardDeletePro.bo?board_num=<%=board_num %>" 
 	method="post">
 <input type = "hidden" name = "page" value = "<%=nowPage %>"/>
 <table>

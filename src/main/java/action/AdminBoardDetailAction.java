@@ -19,7 +19,7 @@ public class AdminBoardDetailAction implements Action {
 	public boolean execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		// TODO Auto-generated method stub
 		int board_num=Integer.parseInt(request.getParameter("board_num"));
-		String page=request.getParameter("page");
+		int page=Integer.parseInt( request.getParameter("page"));
 		System.out.println("page"+page);
 		AdminBoard article= null;
 		Connection con =  getConnection();
@@ -32,6 +32,7 @@ public class AdminBoardDetailAction implements Action {
 			
 			commit(con);
 		}else {
+			
 			
 			rollback(con);
 		}

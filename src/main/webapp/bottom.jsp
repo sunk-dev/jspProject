@@ -26,4 +26,4 @@ IN MOMENTS
 PREMIUM<br>
 COFFEE & DESERT
 </p>
-<center>Since 2008 &copy; 충남도립대학교</center>
+<center>Copyright &copy; sunk-dev</center>

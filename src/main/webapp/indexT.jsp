@@ -69,7 +69,7 @@ top:30%;
 	top:15%;
 	width:50%;
 	height: 70%;
-	background-color: yellow;
+	
 
 }
 .logo{

@@ -22,7 +22,7 @@
 		try{
 			Class.forName(driver);
 			con = DriverManager.getConnection(url, "root", "1234");
-			sql = "insert into member values(?,?,?,?,?,?)";			
+			sql = "insert into member values(?,?,?,?,?,?,?)";			
 			ps = con.prepareStatement(sql);
 			ps.setString(1, m.getId());
 			ps.setString(2, m.getPassword());
@@ -30,9 +30,14 @@
 			ps.setInt(4, m.getAge());
 			ps.setString(5, m.getGender());
 			ps.setString(6, m.getEmail());
+			ps.setString(7, "user");
 			int a = ps.executeUpdate();
 			if(a == 1) 
+			{
+				
 				response.sendRedirect("indexT.jsp");
+			}
+				
 			else{ %>
 				<script>
 					history.go(-1);

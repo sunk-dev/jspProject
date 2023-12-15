@@ -23,6 +23,7 @@ public class BoardModifyProAction implements Action {
 		request.setCharacterEncoding("UTF-8");
 		int board_num = Integer.parseInt(request.getParameter("BOARD_NUM"));
 		String pass = request.getParameter("BOARD_PASS");
+		int page=Integer.parseInt(request.getParameter("page"));
 		Board article = new Board();
 		Connection con =  getConnection();
 		BoardDAO dao =  BoardDAO.getInstance();
@@ -36,6 +37,9 @@ public class BoardModifyProAction implements Action {
 			out.println("alert('암호가 일치하지 않아서 수정권한이 없습니다.')");
 			out.println("history.back();");
 			out.println("</script>");
+			out.flush();
+			response.flushBuffer();
+		    out.close();
 		}
 		else {
 			article.setBOARD_NUM(board_num);
@@ -53,6 +57,9 @@ public class BoardModifyProAction implements Action {
 				out.println("alert('수정 실패!!')");
 				out.println("history.back();");
 				out.println("</script>");
+				 out.flush();
+		    	response.flushBuffer();
+			    out.close();
 			}
 			else {
 				System.out.println("commit");
@@ -61,8 +68,11 @@ public class BoardModifyProAction implements Action {
 			}
 			close(con);
 		}
+		
+		request.setAttribute("board_num",board_num);
+		request.setAttribute("page",page);
 			
-		return true;
+		return false;
 	}
 	
 }

@@ -13,14 +13,14 @@
 	String id =(String)session.getAttribute("id");
 
 	Connection con = null;
-	String url = "jdbc:mysql://localhost:3306/myWeb";
+	String url = "jdbc:mysql://localhost:3306/myweb";
 	String driver = "com.mysql.jdbc.Driver";
 	String sql=null;
 	PreparedStatement ps =  null;	
 	
 	try{
 		Class.forName(driver);
-		con = DriverManager.getConnection(url, "root", "1111");
+		con = DriverManager.getConnection(url, "root", "1234");
 		sql = "delete from member where id = ?";		
 		ps = con.prepareStatement(sql);		
 		ps.setString(1, id);
@@ -29,7 +29,7 @@
 			out.println("<script>");
 			out.println("alert('탈퇴되었습니다. Bye!')");
 			session.invalidate();
-			out.println("location.href='index.jsp'");
+			out.println("location.href='indexT.jsp'");
 			out.println("</script>");
 		}		
 	}	

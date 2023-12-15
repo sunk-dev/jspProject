@@ -16,6 +16,7 @@ public class BoardModifyFormAction implements Action{
 	public boolean execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		// TODO Auto-generated method stub
 		int board_num = Integer.parseInt(request.getParameter("board_num"));
+		int page=Integer.parseInt( request.getParameter("page"));
 		Board article = null;
 		Connection con =  getConnection();
 		BoardDAO dao =  BoardDAO.getInstance();
@@ -24,6 +25,7 @@ public class BoardModifyFormAction implements Action{
 		close(con);
 		
 		request.setAttribute("article",article);
+		request.setAttribute("page", page);
 		return false;
 	}
 

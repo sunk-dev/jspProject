@@ -226,6 +226,6 @@ button {
     </div>
 <!-- partial -->
   <script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js'></script>
- <script  src="./script2.js"></script>
+ <script  src="./script3.js"></script>
 
 

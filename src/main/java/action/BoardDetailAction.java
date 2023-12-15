@@ -17,7 +17,7 @@ public class BoardDetailAction implements Action {
 	public boolean execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		// TODO Auto-generated method stub
 		int board_num=Integer.parseInt(request.getParameter("board_num"));
-		String page=request.getParameter("page");
+		int page=Integer.parseInt(request.getParameter("page"));
 		System.out.println("page"+page);
 		Board article= null;
 		Connection con =  getConnection();

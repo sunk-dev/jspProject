@@ -42,6 +42,7 @@
 <%
 	String id = (String)session.getAttribute("id");
 	String name = (String)session.getAttribute("name");
+	String admin = (String)session.getAttribute("admin");
 	if(id == null){
 %>
 	<a href="./indexT.jsp?page=login">로그인</a> 
@@ -49,8 +50,13 @@
 <%
 	}
 	else{
+		if(admin.equals("admin")){
 %>	
-	<%= name %>님
+	<%= name %>관리자님
+	<%}else{
+		%>
+		<%= name %>님
+	<% }%>
 	<a href="./indexT.jsp?page=infoView">MyPage</a> 
 	<a href="./logout.jsp">Logout</a> 
 <%		

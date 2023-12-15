@@ -17,6 +17,8 @@ body{
 }
 
 	#passForm{
+		position:relative;
+		top:30%;
 		width:400px;
 		margin:auto;
 		border : 1px solid orange;

@@ -108,7 +108,7 @@ td{
 <body>
 	<!-- 게시판 리스트 -->
 	
-	<jsp:include page="../top.jsp" />
+	<jsp:include page="../left2.jsp" />
 
 	<section id="listForm">
 		<h2>공지 목록</h2>

@@ -2,6 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <%
 	Board article = (Board)request.getAttribute("article");
+	int Page=(Integer)request.getAttribute("page");
 %>
 
 <!DOCTYPE html>
@@ -118,6 +119,7 @@ border-bottom: none;
 		<h2>게시판글수정</h2>
 		<form action="boardModifyPro.bo" method="post" name = "modifyform">
 		<input type = "hidden" name = "BOARD_NUM" value = "<%=article.getBOARD_NUM()%>"/>
+		<input type = "hidden" name = "page" value = "<%=Page%>"/>
 			<table>
 				<tr>
 					<td class="td_left"><label for="BOARD_NAME">글쓴이</label></td>

@@ -107,7 +107,9 @@ public class BoardFrontController extends HttpServlet {
 			action = new BoardModifyProAction();
 			try {
 				redirect=action.execute(request, response);
-				path = "boardList.bo";
+				int board_num=(int) request.getAttribute("board_num");
+				int page=(int) request.getAttribute("page");
+				path = "boardDetail.bo?board_num="+board_num+"&page="+page;
 			}catch(Exception e) {
 				e.printStackTrace();
 			}	   		
@@ -129,6 +131,7 @@ public class BoardFrontController extends HttpServlet {
 			action=new BoardDeleteAction();
 			try {
 				redirect=action.execute(request, response);
+				
 				path="boardList.bo";
 				//path = "adminBoardList.bo";
 			}catch(Exception e) {
@@ -236,13 +239,46 @@ public class BoardFrontController extends HttpServlet {
 		
 		else if(command.equals("/AdminBoardModifyForm.bo")){
 			action = new AdminBoardModifyFormAction();
-			try {
-				redirect=action.execute(request, response);
-				path = "/board/admin_board_modify.jsp";
-			}catch(Exception e) {
-				e.printStackTrace();
-			}	   		
-		}
+			HttpSession session= request.getSession();
+			String id= (String)session.getAttribute("id");
+			
+			if(id==null) {
+				System.out.println("로그인필요!");
+				response.setContentType("text/html;charset=UTF-8");
+				PrintWriter out = response.getWriter();
+				out.println("<script>");
+				out.println("alert('로그인 해주세요!')");
+				out.println("history.back();");
+				out.println("</script>");
+			}else {
+				
+				Connection con =  getConnection();
+				MemberDAO dao =  MemberDAO.getInstance();
+				dao.setCon(con);
+				
+				boolean isAdmin = dao.isAdminBoardWriter(id);
+				
+				if(!isAdmin) {
+					close(con);
+					response.setContentType("text/html;charset=UTF-8");
+					PrintWriter out = response.getWriter();
+					out.println("<script>");
+					out.println("alert('관리자 계정이 아닙니다!!')");
+					out.println("history.back();");
+					out.println("</script>");
+				}else {
+					try {
+						redirect=action.execute(request, response);
+						path = "/board/admin_board_modify.jsp";
+					}catch(Exception e) {
+						e.printStackTrace();
+					}	   	
+					
+				}
+			
+			
+					
+		}}
 		
 		//AdminbBoardModifyPro.bo
 		
@@ -289,7 +325,7 @@ public class BoardFrontController extends HttpServlet {
 				}else {
 					try {
 						redirect=action.execute(request, response);
-						path="board/admin_board_delete.jsp";
+						path="board/admin_board_delete2.jsp";
 						//path = "adminBoardList.bo";
 					}catch(Exception e) {
 						e.printStackTrace();

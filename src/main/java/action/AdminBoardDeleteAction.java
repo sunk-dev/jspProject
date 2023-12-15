@@ -34,9 +34,10 @@ public class AdminBoardDeleteAction implements Action {
 		}else {
 			response.setContentType("text/html;charset=UTF-8");
 			PrintWriter out = response.getWriter();
-			out.println("<script>");
-			out.println("alert('암호가 일치하지 않아서 수정권한이 없습니다.')");
-			out.println("</script>");
+			out.println("<script>alert('암호오류! 암호를 확인해주세요!'); history.go(-1);</script>");
+		    out.flush();
+		    response.flushBuffer();
+		    out.close();
 			
 			rollback(con);
 		}

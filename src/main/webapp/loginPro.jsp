@@ -31,6 +31,7 @@
 		if(rs.next()){			
 			session.setAttribute("id", id);
 			session.setAttribute("name", rs.getString("name"));
+			session.setAttribute("admin", rs.getString("admin"));
 			out.println("<script>");
 			out.println("location.href = 'indexT.jsp'");
 			out.println("</script>");			
